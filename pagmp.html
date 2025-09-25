@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MUPI's - Adaptación Climática</title>
+<link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
+<style>
+:root{
+  --verde:#285333; --verde-2:#4c7a4c;
+  --arena:#f8f1e3; --marron:#4b2d16;
+  --blanco:#ffffff;
+}
+html,body{
+  margin:0;height:100%;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--arena);color:var(--marron);
+  display:flex;flex-direction:column;
+}
+header{background:var(--verde);position:sticky;top:0;z-index:1000;
+       box-shadow:0 2px 5px rgba(0,0,0,0.15);}
+nav{display:flex;justify-content:center;}
+nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;}
+nav ul li{position:relative;}
+nav a{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 18px;color:var(--arena);
+  text-decoration:none;cursor:pointer;
+  transition:background .2s,color .2s;border-radius:6px;
+}
+nav a:hover{background:var(--verde-2);color:var(--blanco);}
+nav ul ul{
+  display:none;position:absolute;top:100%;left:0;
+  background:var(--verde);min-width:220px;
+  flex-direction:column;box-shadow:0 6px 18px rgba(0,0,0,0.12);
+  border-radius:0 0 8px 8px;
+}
+nav ul li:hover>ul{display:flex;flex-direction:column;}
+nav ul ul li a{padding:10px 14px;}
+main{flex:1;}
+section{
+  padding:48px 20px;max-width:1100px;margin:36px auto;
+  display:none;opacity:0;transform:translateY(12px);
+  transition:opacity .45s ease,transform .45s ease;
+  background:var(--blanco);border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+section.active{display:block;opacity:1;transform:translateY(0);}
+h1,h2{color:var(--verde);margin:0 0 12px 0;}
+.lead{font-size:1.1rem;line-height:1.6;color:#534233;}
+.muted{color:#6c5a44;font-size:.95rem;}
+footer{
+  background:var(--verde);color:var(--arena);
+  text-align:center;padding:16px;margin-top:auto;
+  box-shadow:0 -2px 5px rgba(0,0,0,0.12);
+}
+@media(max-width:900px){
+  section{margin:18px 12px;padding:28px 14px;}
+  nav a{padding:10px 12px;}
+}
+</style>
+</head>
+<body>
+<header>
+<nav>
+  <ul>
+    <li><a onclick="mostrarSeccion('inicio')"><i class="lucide lucide-home"></i>Inicio</a></li>
+    <li>
+      <a><i class="lucide lucide-briefcase"></i>Filosofía Empresarial</a>
+      <ul>
+        <li><a onclick="mostrarSeccion('empresa')"><i class="lucide lucide-building"></i>Empresa</a></li>
+        <li><a onclick="mostrarSeccion('nosotros')"><i class="lucide lucide-users"></i>Nosotros</a></li>
+        <li><a onclick="mostrarSeccion('politicas')"><i class="lucide lucide-shield-check"></i>Políticas</a></li>
+      </ul>
+    </li>
+    <li>
+      <a><i class="lucide lucide-cog"></i>Funcionamiento</a>
+      <ul>
+        <li><a onclick="mostrarSeccion('servicio')"><i class="lucide lucide-settings"></i>Servicio</a></li>
+        <li><a onclick="mostrarSeccion('producto')"><i class="lucide lucide-box"></i>Producto</a></li>
+        <li><a onclick="mostrarSeccion('catalogo')"><i class="lucide lucide-list"></i>Catálogo</a></li>
+        <li><a onclick="mostrarSeccion('galeria')"><i class="lucide lucide-image"></i>Galería</a></li>
+      </ul>
+    </li>
+    <li>
+      <a><i class="lucide lucide-presentation"></i>Presentación</a>
+      <ul>
+        <li><a onclick="mostrarSeccion('redes')"><i class="lucide lucide-share-2"></i>Redes Sociales</a></li>
+        <li><a onclick="mostrarSeccion('folletos')"><i class="lucide lucide-book-open"></i>Folletos</a></li>
+        <li><a onclick="mostrarSeccion('contacto')"><i class="lucide lucide-mail"></i>Contacto</a></li>
+        <li><a onclick="mostrarSeccion('ubicacion')"><i class="lucide lucide-map-pin"></i>Ubicación</a></li>
+      </ul>
+    </li>
+    <li>
+      <a><i class="lucide lucide-calendar"></i>Eventos</a>
+      <ul>
+        <li><a onclick="mostrarSeccion('efecto')"><i class="lucide lucide-activity"></i>Efecto I</a></li>
+        <li><a onclick="mostrarSeccion('stem')"><i class="lucide lucide-flask"></i>STEM</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</header>
+
+<main>
+  <!-- INICIO -->
+  <section id="inicio" class="active">
+    <h1>Bienvenidos a MUPI's</h1>
+    <p class="lead">
+      MUPI’s (Módulos Urbanos de Purificación Inteligente y Sostenible) es un proyecto de innovación
+      ambiental que une ciencia, tecnología y diseño para mejorar la calidad del aire en las ciudades.
+      Nuestro objetivo es ofrecer a la comunidad espacios públicos más limpios, saludables y
+      agradables, al tiempo que creamos conciencia sobre la importancia de reducir la huella de carbono.
+    </p>
+    <p class="muted">
+      Nuestra propuesta combina la biotecnología de las algas diatomeas, capaces de absorber
+      dióxido de carbono y material particulado, con un mobiliario urbano estético y funcional que
+      también sirve como soporte publicitario. De esta forma, MUPI’s no solo aporta beneficios
+      ambientales, sino que se convierte en una solución económicamente viable para los gobiernos
+      locales y empresas privadas.
+    </p>
+  </section>
+
+  <!-- Filosofía subdividida -->
+  <section id="empresa">
+    <h2>Empresa</h2>
+    <p>
+      MUPI’s nace de la necesidad de ofrecer alternativas reales frente a la crisis de
+      contaminación del aire que enfrentan las grandes ciudades. Nuestra empresa combina
+      la investigación científica con el diseño urbano para producir módulos inteligentes
+      que filtran contaminantes mientras embellecen el espacio público y funcionan como
+      punto de encuentro para la comunidad.
+    </p>
+  </section>
+
+  <section id="nosotros">
+    <h2>Nosotros</h2>
+    <p>
+      Somos un equipo interdisciplinario conformado por ingenieros, biólogos, diseñadores
+      y educadores ambientales comprometidos con la sostenibilidad. Creemos en la ciencia
+      abierta, el trabajo colaborativo y la educación ciudadana como ejes para combatir el
+      cambio climático y promover hábitos de vida responsables.
+    </p>
+  </section>
+
+  <section id="politicas">
+    <h2>Políticas y Valores</h2>
+    <p>
+      <strong>Misión:</strong> Desarrollar, implementar y mantener sistemas de purificación de aire basados en
+      biotecnología de microalgas que contribuyan a la mitigación de la contaminación y
+      a la adaptación de las ciudades frente a los retos climáticos, mientras generamos
+      conciencia y participación comunitaria.
+    </p>
+    <p>
+      <strong>Visión:</strong> Ser reconocidos a nivel nacional e internacional como un referente en soluciones
+      urbanas sostenibles, logrando que para 2030 nuestras tecnologías de biofiltración
+      estén presentes en las principales capitales de Latinoamérica, integradas en
+      políticas públicas de calidad del aire.
+    </p>
+    <p>
+      <strong>Valores:</strong> Innovación, sostenibilidad, transparencia, educación y responsabilidad social
+      guían cada una de nuestras decisiones y procesos.
+    </p>
+  </section>
+
+  <!-- Funcionamiento -->
+  <section id="servicio">
+    <h2>Servicio</h2>
+    <p class="lead">
+      Nuestro servicio principal es la instalación y mantenimiento de módulos MUPI’s en zonas
+      estratégicas de la ciudad. Cada unidad captura y filtra el aire a través de microalgas
+      diatomeas, reduce partículas contaminantes y reporta en tiempo real los niveles de
+      calidad del aire mediante una plataforma web y aplicación móvil.
+    </p>
+  </section>
+
+  <section id="producto">
+    <h2>Producto</h2>
+    <p>
+      El módulo consiste en una estructura urbana publicitaria que contiene un biorreactor de
+      microalgas, sensores de medición de contaminantes, un sistema de iluminación LED de bajo
+      consumo y una pantalla informativa. Su diseño modular permite adaptarse a diferentes
+      espacios: estaciones de transporte, parques, avenidas principales o plazas públicas.
+    </p>
+  </section>
+
+  <section id="catalogo">
+    <h2>Catálogo</h2>
+    <p>
+      Ofrecemos varias configuraciones: módulos estándar para paraderos, paneles murales
+      decorativos y versiones portátiles para eventos. Cada modelo puede personalizarse
+      en tamaño, capacidad de filtración, opciones de energía renovable y espacio
+      publicitario.
+    </p>
+  </section>
+
+  <section id="galeria">
+    <h2>Galería del Proyecto</h2>
+    <p class="muted">
+      Aquí se integrarán fotografías y diagramas de nuestros prototipos, pruebas de
+      laboratorio y las instalaciones en diferentes espacios urbanos.
+    </p>
+  </section>
+
+  <!-- Presentación -->
+  <section id="redes">
+    <h2>Redes Sociales</h2>
+    <p>
+      Síguenos para conocer avances, convocatorias y actividades educativas en:
+    </p>
+    <div>
+      <a href="https://www.tiktok.com/@mupis.un.nuevo.ca?_t=ZS-8zP0AQk6KaO&_r=1" target="_blank">TikTok</a> |
+      <a href="https://www.instagram.com/mupi.s14?igsh=M2hwZmhiMWcwOHRu" target="_blank">Instagram</a> |
+      <a href="https://www.facebook.com/share/1FFTomrop6/" target="_blank">Facebook</a>
+    </div>
+  </section>
+
+  <section id="folletos">
+    <h2>Folletos</h2>
+    <p>
+      Próximamente podrás descargar infografías, catálogos y material de divulgación en
+      formato digital para conocer cada detalle del funcionamiento y el impacto ambiental
+      de los módulos MUPI’s.
+    </p>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>
+      <strong>Email:</strong> mupis1487@gmail.com<br>
+      <strong>Teléfono:</strong> 3203670602<br>
+      <strong>Dirección:</strong> Cl. 74 #62-44, Bogotá<br>
+      <strong>Horario de atención:</strong> Lunes a viernes de 8:00 a.m. a 5:00 p.m.
+    </p>
+  </section>
+
+  <section id="ubicacion">
+    <h2>Ubicación</h2>
+    <p class="muted">
+      Nuestra sede principal se encuentra en Cl. 74 #62-44, Bogotá.
+      Allí desarrollamos los prototipos, realizamos pruebas y recibimos
+      a aliados y visitantes interesados en conocer el proyecto.
+    </p>
+  </section>
+
+  <!-- Eventos -->
+  <section id="efecto">
+    <h2>Efecto I</h2>
+    <p>
+      En 2024 y 2025 el proyecto MUPI’s fue invitado a participar en <strong>Efecto I</strong>,
+      una iniciativa de la Fundación Universitaria del Área Andina que impulsa el aprendizaje abierto,
+      el trabajo colaborativo y la aplicación de la innovación en entornos reales.
+      Durante estas ediciones compartimos nuestra experiencia en el uso de algas diatomeas
+      para la purificación del aire urbano, realizamos talleres con estudiantes de distintas
+      disciplinas y expusimos los avances del prototipo de mobiliario urbano que integra
+      biotecnología, electrónica y diseño sostenible.
+    </p>
+  </section>
+
+  <section id="stem">
+    <h2>Olimpiadas STEM</h2>
+    <p>
+      MUPI’s ha sido protagonista en las <strong>Olimpiadas STEM</strong> organizadas por la
+      Secretaría de Educación de Bogotá en 2023, 2024 y 2025. Estas olimpiadas reúnen proyectos
+      que integran ciencia, tecnología, ingeniería y matemáticas para resolver problemas de
+      impacto social. En cada edición presentamos nuestros módulos urbanos de purificación
+      inteligente, demostramos el funcionamiento de los sensores de calidad del aire y
+      compartimos resultados de mediciones en entornos urbanos.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; MUPI's 2025 - Todos los derechos reservados.</p>
+</footer>
+
+<script>
+function ocultarTodas(){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+}
+function mostrarSeccion(id){
+  ocultarTodas();
+  const sec=document.getElementById(id);
+  if(sec){sec.classList.add('active');}
+}
+mostrarSeccion('inicio');
+</script>
+</body>
+</html>
